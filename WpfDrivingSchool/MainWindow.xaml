@@ -1,0 +1,105 @@
+﻿<Window x:Name="MainForm" x:Class="WpfDrivingSchool.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfDrivingSchool"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+       
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="600">
+
+    <UserControl>
+
+        <UserControl.Resources>
+            <ResourceDictionary>
+                <ResourceDictionary.MergedDictionaries>
+                    <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+                    <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Card.xaml" />
+                    <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.CheckBox.xaml" />
+                    <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Flipper.xaml" />
+                    <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Popupbox.xaml" />
+                </ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary>
+        </UserControl.Resources>
+
+        <Grid>
+
+            <materialDesign:ColorZone Mode="PrimaryLight" Padding="16">
+                <DockPanel>
+                    <materialDesign:PopupBox DockPanel.Dock="Right" PlacementMode="BottomAndAlignRightEdges">
+                        <ListBox>
+                            <ListBoxItem>Besoins d'Ed ?</ListBoxItem>
+                            <ListBoxItem>Copyright</ListBoxItem>
+                            <ListBoxItem>Licenses</ListBoxItem>
+                        </ListBox>
+                    </materialDesign:PopupBox>
+                    <StackPanel Orientation="Horizontal">
+                        <ToggleButton Style="{DynamicResource MaterialDesignHamburgerToggleButton}" IsEnabled="False"/>
+                        <TextBlock VerticalAlignment="Center" Margin="16 0 0 0">Logiciel de gestion d'auto-école</TextBlock>
+                    </StackPanel>
+                </DockPanel>
+            </materialDesign:ColorZone>
+
+            
+            <materialDesign:Flipper Style="{StaticResource MaterialDesignCardFlipper}" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                <materialDesign:Flipper.FrontContent>
+
+                    <materialDesign:ColorZone Mode="PrimaryLight" Padding="16">
+
+                        <Button Style="{StaticResource MaterialDesignFlatButton}"
+                        Command="{x:Static materialDesign:Flipper.FlipCommand}"
+                        Margin="8"
+                        Width="192"
+                >Login</Button>
+                    </materialDesign:ColorZone>
+
+                </materialDesign:Flipper.FrontContent>
+                <materialDesign:Flipper.BackContent>
+                    <Grid Height="256" Width="200">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <materialDesign:ColorZone Mode="PrimaryLight" Padding="6">
+                            <StackPanel Orientation="Horizontal">
+                                <Button Style="{StaticResource MaterialDesignToolForegroundButton}"
+                                    Command="{x:Static materialDesign:Flipper.FlipCommand}"
+                                    HorizontalAlignment="Left">
+                                    <materialDesign:PackIcon Kind="ArrowLeft" HorizontalAlignment="Right" />
+                                </Button>
+                                <TextBlock Margin="8 0 0 0" VerticalAlignment="Center">Login</TextBlock>
+                            </StackPanel>
+                        </materialDesign:ColorZone>
+                        <Grid Grid.Row="1" Margin="0 6 0 0" HorizontalAlignment="Center" VerticalAlignment="Top"
+                          Width="172">
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <TextBox materialDesign:HintAssist.Hint="Nom d'utilisateur" materialDesign:HintAssist.IsFloating="True" Margin="0 12 0 0"></TextBox>
+
+                            <StackPanel  Grid.Row="1" Margin="0 12 0 0">
+                                <PasswordBox x:Name="PasswordBox" materialDesign:HintAssist.Hint="Password" />
+                            </StackPanel>
+
+                            <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 12 0 0" HorizontalAlignment="Center">
+                                <Button Style="{StaticResource MaterialDesignRaisedButton}" Width="100" ToolTip="Resource name: MaterialDesignRaisedButton" Margin="0,0,0,-32" Click="Button_Click">Login</Button>
+                            </StackPanel>
+
+                        </Grid>
+                    </Grid>
+                </materialDesign:Flipper.BackContent>
+            </materialDesign:Flipper>
+        </Grid >
+    </UserControl>
+
+</Window>
